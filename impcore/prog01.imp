@@ -3,7 +3,15 @@
 ;; Collaborators:
 
 ;; Exercise 3
-;; DEFINE sigma HERE
+(define sigma (m n)
+  (if (> n m)
+    (+
+      (sigma (+ m 1) n)
+      m
+    )
+    m
+  )
+)
 
 ;; Exercise 4a
 ;; DEFINE exp HERE
