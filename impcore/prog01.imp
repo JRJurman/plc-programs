@@ -76,7 +76,18 @@
 )
 
 ;; Exercise 6
-;; DEFINE fib HERE
+(define fib (m)
+  (if (or (= m 0) (= m 1))
+    m
+    (if (> m 1)
+      (+
+        (fib (- m 1))
+        (fib (- m 2))
+      )
+      0
+    )
+  )
+)
 
 ;; Exercise 7a
 ;; DEFINE prime? HERE
