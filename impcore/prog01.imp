@@ -14,7 +14,15 @@
 )
 
 ;; Exercise 4a
-;; DEFINE exp HERE
+(define exp (m n)
+  (if (< (* m n) 0)
+    0   ;; false case, return 0
+    (+
+      m
+      (exp m (- n 1))
+    )
+  )
+)
 
 ;; Exercise 4a
 ;; DEFINE log HERE
