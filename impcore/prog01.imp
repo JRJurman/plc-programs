@@ -44,6 +44,7 @@
 )
 
 ;; Exercise 4a
+;; helper log function
 (define loghelper (m n l)
   (if (<=
         (exp m (+ l 1))
@@ -90,7 +91,17 @@
 )
 
 ;; Exercise 7a
+;; helper prime function
+(define primehelper (n m)
+  ;; how does division in impcore?
+  (if (/ m n)
+  )
+)
+(define prime? (n)
+
+)
 ;; DEFINE prime? HERE
+
 
 ;; Exercise 7b
 ;; DEFINE nthprime HERE
