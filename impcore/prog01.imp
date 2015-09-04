@@ -1,5 +1,7 @@
 ;; Name: Jesse Jurman (jrj2703)
 ;; Time spent on assignment:
+;;  1 hour
+
 ;; Collaborators:
 
 ;; start helper functions ==========
@@ -45,18 +47,18 @@
 
 ;; Exercise 4a
 ;; helper log function
-(define loghelper (m n l)
+(define logHelper (m n l)
   (if (<=
         (exp m (+ l 1))
         n
       )
-    (loghelper m n (+ l 1))
+    (logHelper m n (+ l 1))
     l
   )
 )
 
 (define log (m n)
-  loghelper m n 0
+  (logHelper m n 0)
 )
 
 ;; Exercise 5
@@ -92,16 +94,18 @@
 
 ;; Exercise 7a
 ;; helper prime function
-(define primehelper (n m)
-  ;; how does division in impcore?
-  (if (/ m n)
+(define primeHelper (n m)
+  (if (> m 1)
+    (if (= (mod n m) 0)
+      0
+      (primeHelper n (- m 1))
+    )
+    1
   )
 )
 (define prime? (n)
-
+  (primeHelper n (- n 1))
 )
-;; DEFINE prime? HERE
-
 
 ;; Exercise 7b
 ;; DEFINE nthprime HERE
