@@ -2,6 +2,25 @@
 ;; Time spent on assignment:
 ;; Collaborators:
 
+;; start helper functions ==========
+(define or (m n)
+  (> (+ m n) 0)
+)
+
+(define and (m n)
+  (= (+ m n) 2)
+)
+
+(define >= (m n)
+  (or (> m n) (= m n))
+)
+
+(define <= (m n)
+  (or (< m n) (= m n))
+)
+
+;; end helper functions ============
+
 ;; Exercise 3
 (define sigma (m n)
   (if (> n m)
@@ -26,8 +45,7 @@
 
 ;; Exercise 4a
 (define loghelper (m n l)
-  ;; should be less than or equal?
-  (if (<
+  (if (<=
         (exp m (+ l 1))
         n
       )
@@ -41,7 +59,21 @@
 )
 
 ;; Exercise 5
-;; DEFINE choose HERE
+(define choose (n k)
+  (if(>= n 0)
+    (if (or (= k 0) (= k n))
+      1
+      (if (and (> k 0) (> n 0))
+        (+
+          (choose (- n 1) k)
+          (choose (- n 1) (- k 1))
+        )
+        0
+      )
+    )
+    0
+  )
+)
 
 ;; Exercise 6
 ;; DEFINE fib HERE
