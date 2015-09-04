@@ -25,7 +25,20 @@
 )
 
 ;; Exercise 4a
-;; DEFINE log HERE
+(define loghelper (m n l)
+  ;; should be less than or equal?
+  (if (<
+        (exp m (+ l 1))
+        n
+      )
+    (loghelper m n (+ l 1))
+    l
+  )
+)
+
+(define log (m n)
+  loghelper m n 0
+)
 
 ;; Exercise 5
 ;; DEFINE choose HERE
