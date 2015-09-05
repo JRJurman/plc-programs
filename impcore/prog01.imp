@@ -126,7 +126,12 @@
 )
 
 ;; Exercise 7c
-;; DEFINE sumprimes HERE
+(define sumprimes (n)
+  (if (> n 0)
+    (+ (nthprime n) (sumprimes (- n 1)))
+    0
+  )
+)
 
 ;; Exercise 7d
 ;; DEFINE relprime? HERE
