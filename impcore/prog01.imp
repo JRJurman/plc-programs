@@ -144,6 +144,7 @@
     1
   )
 )
+
 (define relprime? (m n)
   (if (= m n)
     0
@@ -153,7 +154,19 @@
     )
   )
 )
-;; DEFINE relprime? HERE
 
 ;; Exercise 8
-;; DEFINE binary HERE
+;; helper for binary function
+;; n -> value; p -> place; s -> store
+(define binaryHelper (n p s)
+  (if (> n 0)
+    (binaryHelper (/ n 2) (* p 10) (+ s (* p (mod n 2))))
+    s
+  )
+)
+(define binary (m)
+  (if (> m 0)
+    (binaryHelper m 1 0)
+    (- 0 (binaryHelper (- 0 m) 1 0))
+  )
+)
