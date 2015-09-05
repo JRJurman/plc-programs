@@ -134,6 +134,25 @@
 )
 
 ;; Exercise 7d
+;; helper function for relprime?
+(define relprimeHelper (m n l)
+  (if (> l 1)
+    (if (and (= (mod n l) 0) (= (mod m l) 0))
+      0
+      (relprimeHelper m n (- l 1))
+    )
+    1
+  )
+)
+(define relprime? (m n)
+  (if (= m n)
+    0
+    (if (> m n)
+      (relprimeHelper m n (- m 1))
+      (relprimeHelper m n (- n 1))
+    )
+  )
+)
 ;; DEFINE relprime? HERE
 
 ;; Exercise 8
