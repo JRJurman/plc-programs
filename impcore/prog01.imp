@@ -1,8 +1,8 @@
 ;; Name: Jesse Jurman (jrj2703)
 ;; Time spent on assignment:
-;;  1 hour
+;;  2 hours
 
-;; Collaborators:
+;; Collaborators: N/A
 
 ;; start helper functions ==========
 (define or (m n)
@@ -110,12 +110,19 @@
 )
 
 ;; Exercise 7b
-;; DEFINE nthprime HERE
+;; helper nthprime function
 (define nthprimeHelper (n m)
-  1
+  (if (prime? m)
+    (if (= n 0)
+      m
+      (nthprimeHelper (- n 1) (+ m 1))
+    )
+    (nthprimeHelper n (+ m 1))
+  )
 )
+
 (define nthprime (n)
-  1
+  (nthprimeHelper n 1)
 )
 
 ;; Exercise 7c
