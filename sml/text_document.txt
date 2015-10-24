@@ -1,0 +1,8 @@
+"Which of the three languages was easier, Python, Impcore, or Standard ML? Why?"
+  Python was probably easiest, because the logic has already been completed, and I was familiar with the syntax. Impcore involved building the initial logic, but it's syntax was the most stripped down. Standard ML was nice, because of it's verbose if-then-else syntax, but required learning new commands and conversions. Also, Standard MLs strict syntax was unclear at times (with semi-colons and EOFs)
+
+"Which took longer to implement? Why?"
+  Impcore, mostly because it was the first attempt to implement the logic. After that implementation, the other assignments were more a matter of converting one languages' if syntax, to another.
+
+"Which took more code to implement? Why?"
+  Probably Standard ML, only because of it's verbose if-then-else. Impcore was probably the smallest, because it was only 'if' with an implied 'then' and 'else' syntax.

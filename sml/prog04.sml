@@ -1,5 +1,8 @@
 (* Name: Jesse Jurman (jrj2703) 
- Time spent on assignment: *);
+ Time spent on assignment: 
+ 50 minutes to write tests
+ 50 minutes to write functions
+*);
 (* Tests Function *);
 fun test function number result expect =
   if result = expect
