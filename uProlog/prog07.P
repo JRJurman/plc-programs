@@ -1,0 +1,67 @@
+/* prog07.P */
+/* Jesse Jurman (jrj2703) */
+[fact].
+
+/* define direct flight logic */
+directFlight(rochester, nyc).
+directFlight(rochester, dc).
+directFlight(rochester, detroit).
+directFlight(nyc, dc).
+directFlight(nyc, paris).
+directFlight(nyc, miami).
+directFlight(dc, miami).
+directFlight(dc, nyc).
+directFlight(dc, denver).
+directFlight(detroit, rochester).
+directFlight(detroit, dc).
+directFlight(denver, detroit).
+directFlight(denver, miami).
+directFlight(denver, dc).
+directFlight(miami, london).
+directFlight(london, nyc).
+directFlight(london, berlin).
+directFlight(london, paris).
+directFlight(berlin, miami).
+
+/* flight predicates based on directFlight */
+direct(X, Y) :- directFlight(X, Y).
+oneStop(X, Y, Z) :-
+  direct(X, Y),
+  direct(Y, Z).
+twoStop(X, Y, Z, A) :-
+  oneStop(X, Y, Z),
+  direct(Z, A).
+threeStop(X, Y, Z, A, B) :-
+  twoStop(X, Y, Z, A),
+  direct(A, B).
+fourStop(X, Y, Z, A, B, C) :-
+  threeStop(X, Y, Z, A, B),
+  direct(B, C).
+
+/* check if flight exists based on any of the above */
+flightExists(X, Y) :- direct(X, Y).
+flightExists(X, Y) :- oneStop(X, A, Y).
+flightExists(X, Y) :- twoStop(X, A, B, Y).
+flightExists(X, Y) :- threeStop(X, A, B, C, Y).
+flightExists(X, Y) :- fourStop(X, A, B, C, D, Y).
+
+[query].
+
+/* 1. Does there exist a flight path from Rochester to Paris? */
+flightExists(rochester, paris).
+/* 2. Does there exist a flight path from Paris to Rochester? */
+flightExists(paris, rochester).
+/* 3. Does there exist a direct flight from Berlin to Miami? */
+direct(berlin, miami).
+/* 4. Does there exist a one stop flight from London to Rochester? */
+oneStop(london, rochester).
+/* 5. Does there exist a two stop flight from London to Rochester? */
+twoStop(london, rochester).
+/* 6. Does there exist a three stop flight from London to Rochester? */
+threeStop(london, rochester).
+/* 7. Does there exist a four stop flight from London to Rochester? */
+fourStop(london, rochester).
+/* 8. Does your flightExists query give you the longest or shortest possible path? */
+/* Can you explain how to make it do it the opposite way, if it is even possible? */
+/* ANSWER: the clauses are tried in the order that they are written in, so it will give the shortest path first */
+/* if fourStop was set as the first clause, that it would try that first, and then threeStop, and so on... */
